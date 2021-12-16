@@ -15,7 +15,11 @@ let valor
 
 do{
     nome=prompt("Informe o nome do veiculo")
+    nomes.push(nome)
+
+    valor=Number (prompt("Informe o valor do veiculo"+nome))
     valores.push(valor)
+
 
 resposta=prompt("Deseja continuar S/N?")
 }while(resposta == "S" || resposta == "s")
