@@ -1,0 +1,88 @@
+select *
+from pessoas
+where
+id >=4
+and id <=5
+
+
+delete from pessoas
+where 
+id >=4
+and id<=5
+
+--deletar apenas o registro com id = 1
+--fazer com segurança sempre
+
+select * from pessoas
+where
+id=1
+
+delete from pessoas
+where
+id=1
+
+--criar uma tabela chamada usuarios com os campos
+--id integer primary key autoincrement unique
+--nome text not null
+--email text not null
+--obs text
+
+
+--para criar uma tabela utilize "create table + nome da tabela
+--dentro dos () informar campo a campo com seus atributos
+--separar os campos por "virgula
+--cada campo tem seu nome "tipo" e configurações adicionais
+create table usuarios(
+    id integer primary key autoincrement unique,
+    nome text not null,
+    email text not null,
+    senha text not null,
+    obs text
+)
+
+insert into usuarios (nome,email,senha,obs) values ("Daniel","ddd@gmail.com","zxcv","no coments")
+
+select * from usuarios
+
+insert into usuarios (nome,email,senha) values ("Marcus","mmmm@gmail.com","asdf")
+
+insert into usuarios (nome,email,senha) values ("Silva","sssss@gmail.com","qwert")
+
+insert into usuarios (nome,email,senha,obs) values ("Maria","mar@gmail.com","poiuy","no coments")
+
+--delete from usuarios
+where 
+id=3
+
+insert into usuarios (nome,email,senha) values ("Silva","sssss@gmail.com","qwert")
+
+select * from usuarios
+where
+id=2
+
+update usuarios
+set
+obs="coment"
+where
+id=2
+
+create table pessoas(
+id integer primary key autoincrement unique,
+name text
+idade text
+)
+
+select * from pessoas
+
+insert into pessoas (name,idade) values ("Pessoa1", 22);
+insert into pessoas (name,idade) values ("Pessoa2",12);
+insert into pessoas (name,idade) values ("Pessoa3", 32);
+insert into pessoas (name,idade) values ("Pessoa4", 52);
+insert into pessoas (name,idade) values ("Pessoa5", 42);
+insert into pessoas (name,idade) values ("Pessoa6", 22);
+
+update pessoas
+set
+idade=18
+where
+id
