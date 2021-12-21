@@ -1,0 +1,50 @@
+select * from series;
+
+insert into series(nome,ano,genero,diretor) values ("Viking",2019,"ação","Michael");
+
+insert into series(nome,ano,diretor) values ("La casa de papel",2019,"Zé");
+insert into series(nome,ano,genero) values ("The witcher",2020,"Fantasia");
+insert into series(nome,ano,genero) values ("one peace",1997,"anime");
+insert into series(nome,ano,genero) values("Bleach",1999,"anime");
+insert into series(nome,ano,genero) values("Naruto",2002,"anime");
+insert into series(nome,ano,genero) values("the boys",2020,"ação");
+
+select count(*) from series
+
+
+select genero, count(*) from series
+group by genero;
+
+select * from series;
+
+--id 2 em series é la casa de papel
+
+insert into episodios(serie_id,titulo,sequencia,descricao) values (2,"fim da estrada",3,"perdeu");
+
+select * from episodios;
+
+select * from series as se
+inner join episodios as ep on ep.serie_id = se.id
+where se.id=2
+order by ep.sequencia;
+
+select * from series as se
+left join episodios as ep on ep.serie_id = se.id
+order by se.nome asc,ep.sequencia desc
+;
+
+--para fazer contagens ou agrupadores é necessário informar quais campos se 
+--repetem e esses campos devem ser os unicos presentes no select
+--os demais campos são os de agrupamento como o count e o sum.
+--os campos mencionados no select devem existir no group by
+select se.nome,
+count(*)
+from series as se
+inner join episodios as ep on ep.serie_id = se.id
+group by se.nome
+
+--para consultas com contagem ou agrupadores não devo usar left pois
+--sempre que falta o relacionamento é gerado no mínimo uma linha vazia
+--que não configura relacionamento
+
+
